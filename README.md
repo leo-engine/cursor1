@@ -50,6 +50,20 @@ pytest
 
 Run with verbose output: `pytest -v`
 
+## API (items CRUD)
+
+REST API for a single resource at `/api/items` (in-memory store).
+
+| Method | URL | Description |
+|--------|-----|-------------|
+| GET | `/api/items` | List all items |
+| POST | `/api/items` | Create item (body: `{"title": "..."}`) |
+| GET | `/api/items/<id>` | Get one item |
+| PUT | `/api/items/<id>` | Update item (body: `{"title": "..."}`) |
+| DELETE | `/api/items/<id>` | Delete item |
+
+Example: `curl -X POST http://127.0.0.1:5000/api/items -H "Content-Type: application/json" -d '{"title":"My item"}'`
+
 ## Production (WSGI)
 
 Use a WSGI server such as Gunicorn:
@@ -76,7 +90,9 @@ Then open **http://127.0.0.1:5000**.
 - `wsgi.py` – WSGI entry point for production
 - `app/` – Flask application package
   - `app/__init__.py` – App factory
-  - `app/routes.py` – Routes (blueprint)
+  - `app/routes.py` – Web routes (blueprint)
+  - `app/api.py` – REST API /api/items (blueprint)
+  - `app/store.py` – In-memory store for items
   - `app/templates/` – Jinja2 templates
   - `app/static/` – Static files (CSS, JS)
 - `hello.py` – Standalone Hello World script

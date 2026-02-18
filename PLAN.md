@@ -7,6 +7,7 @@
 - **wsgi.py** – WSGI entry point for production (e.g. Gunicorn: `gunicorn wsgi:application`).
 - **requirements.txt** – Flask, python-dotenv. **requirements-dev.txt** – pytest, pytest-flask.
 - **tests/** – Pytest tests. **.env.example** – Example config. **Dockerfile** – Production image.
+- **API** – REST CRUD for `/api/items` (in-memory store; see README).
 
 ## Possible next steps
 
@@ -24,7 +25,7 @@
    - Add a `.env` for config and document how to run (e.g. in a README).
    - Add a simple Dockerfile or deployment notes.
 
-4. **Features** (pick what fits)
+4. **Features** ✓
    - Simple REST API (e.g. CRUD for one resource).
    - Database (SQLite + SQLAlchemy or similar).
    - Basic auth or API keys if needed.
