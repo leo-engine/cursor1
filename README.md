@@ -33,9 +33,24 @@ You should see: `Hello, World!`
 
 To stop the server, press `Ctrl+C` in the terminal.
 
+## Production (WSGI)
+
+Use a WSGI server such as Gunicorn:
+
+```bash
+pip install gunicorn
+gunicorn -w 4 -b 127.0.0.1:5000 wsgi:application
+```
+
 ## Project layout
 
+- `app.py` – Run the Flask development server
+- `wsgi.py` – WSGI entry point for production
+- `app/` – Flask application package
+  - `app/__init__.py` – App factory
+  - `app/routes.py` – Routes (blueprint)
+  - `app/templates/` – Jinja2 templates
+  - `app/static/` – Static files (CSS, JS)
 - `hello.py` – Standalone Hello World script
-- `app.py` – Flask web app (single route: `/`)
 - `requirements.txt` – Python dependencies (Flask)
 - `PLAN.md` – Project plan and next steps

@@ -3,7 +3,8 @@
 ## Current state
 
 - **hello.py** – Simple Hello World script (run with `python3 hello.py`).
-- **app.py** – Minimal Flask app with one route (`/`) serving “Hello, World!” (run with `python3 app.py`).
+- **app/** – Flask app package with `routes`, `templates`, `static`; run with `python3 app.py`.
+- **wsgi.py** – WSGI entry point for production (e.g. Gunicorn: `gunicorn wsgi:application`).
 - **requirements.txt** – Lists Flask (and its dependencies) for the web app.
 
 ## Possible next steps
@@ -13,7 +14,7 @@
    - Use templates (Jinja2) instead of inline HTML.
    - Add static files (CSS/JS).
 
-2. **Structure**
+2. **Structure** ✓
    - Move the app into a package (e.g. `app/`) with `routes`, `templates`, `static`.
    - Add a proper WSGI entry point for production (e.g. `wsgi.py`).
 
