@@ -5,7 +5,8 @@
 - **hello.py** – Simple Hello World script (run with `python3 hello.py`).
 - **app/** – Flask app package with `routes`, `templates`, `static`; run with `python3 app.py`.
 - **wsgi.py** – WSGI entry point for production (e.g. Gunicorn: `gunicorn wsgi:application`).
-- **requirements.txt** – Lists Flask (and its dependencies) for the web app.
+- **requirements.txt** – Flask, python-dotenv. **requirements-dev.txt** – pytest, pytest-flask.
+- **tests/** – Pytest tests. **.env.example** – Example config. **Dockerfile** – Production image.
 
 ## Possible next steps
 
@@ -18,7 +19,7 @@
    - Move the app into a package (e.g. `app/`) with `routes`, `templates`, `static`.
    - Add a proper WSGI entry point for production (e.g. `wsgi.py`).
 
-3. **Quality & deployment**
+3. **Quality & deployment** ✓
    - Add tests (e.g. pytest + pytest-flask).
    - Add a `.env` for config and document how to run (e.g. in a README).
    - Add a simple Dockerfile or deployment notes.

@@ -23,15 +23,32 @@ You should see: `Hello, World!`
    pip install -r requirements.txt
    ```
 
-2. Start the server:
+2. (Optional) Copy env example and adjust:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Edit `.env` to set `FLASK_DEBUG=1` for development. Do not commit `.env`.
+
+3. Start the server:
 
    ```bash
    python3 app.py
    ```
 
-3. Open in your browser: **http://127.0.0.1:5000**
+4. Open in your browser: **http://127.0.0.1:5000**
 
 To stop the server, press `Ctrl+C` in the terminal.
+
+## Tests
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
+
+Run with verbose output: `pytest -v`
 
 ## Production (WSGI)
 
@@ -41,6 +58,17 @@ Use a WSGI server such as Gunicorn:
 pip install gunicorn
 gunicorn -w 4 -b 127.0.0.1:5000 wsgi:application
 ```
+
+## Docker
+
+Build and run:
+
+```bash
+docker build -t cursor1 .
+docker run -p 5000:5000 cursor1
+```
+
+Then open **http://127.0.0.1:5000**.
 
 ## Project layout
 
@@ -52,5 +80,9 @@ gunicorn -w 4 -b 127.0.0.1:5000 wsgi:application
   - `app/templates/` – Jinja2 templates
   - `app/static/` – Static files (CSS, JS)
 - `hello.py` – Standalone Hello World script
-- `requirements.txt` – Python dependencies (Flask)
+- `requirements.txt` – Python dependencies (Flask, python-dotenv)
+- `requirements-dev.txt` – Dev dependencies (pytest, pytest-flask)
+- `tests/` – Pytest tests
+- `.env.example` – Example env file (copy to `.env`)
+- `Dockerfile` – Image for running the app with Gunicorn
 - `PLAN.md` – Project plan and next steps
